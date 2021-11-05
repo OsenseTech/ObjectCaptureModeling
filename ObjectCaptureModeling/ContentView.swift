@@ -18,6 +18,15 @@ struct ContentView: View {
                 Text("資料夾名稱")
                 TextField("資料夾名稱", text: $folderName, prompt: Text("folderName"))
                     .frame(width: 200)
+                Button("選擇資料夾") {
+                    let panel = NSOpenPanel()
+                    panel.allowsMultipleSelection = false
+                    panel.canChooseDirectories = true
+                    panel.canChooseFiles = false
+                    if panel.runModal() == .OK {
+                        self.folderName = panel.url?.lastPathComponent ?? "<none>"
+                    }
+                }
             }
             HStack {
                 Picker(selection: $detailLevel, label: Text("精細程度").font(.headline)) {
