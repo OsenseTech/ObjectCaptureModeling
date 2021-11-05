@@ -37,15 +37,11 @@ struct ContentView: View {
                 .pickerStyle(.radioGroup)
             }
             Button("開始建模") {
-                modeling()
+                Photogrammetry(folder: folderName, detail: detailLevel).run()
             }
         }
         .padding()
     }
-}
-
-func modeling() {
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
