@@ -12,6 +12,7 @@ struct ObjectCaptureModelingApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .frame(minWidth: 512, minHeight: 225)
         }
     }
 }

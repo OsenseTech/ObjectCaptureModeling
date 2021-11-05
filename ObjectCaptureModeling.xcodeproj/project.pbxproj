@@ -14,6 +14,7 @@
 		9A8AD2F92733E35E007EDA05 /* ObjectCaptureModelingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD2F82733E35E007EDA05 /* ObjectCaptureModelingTests.swift */; };
 		9A8AD3032733E35E007EDA05 /* ObjectCaptureModelingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3022733E35E007EDA05 /* ObjectCaptureModelingUITests.swift */; };
 		9A8AD3052733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */; };
+		9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3132734C809007EDA05 /* DetailLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		9A8AD2FE2733E35E007EDA05 /* ObjectCaptureModelingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectCaptureModelingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8AD3022733E35E007EDA05 /* ObjectCaptureModelingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITests.swift; sourceTree = "<group>"; };
 		9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9A8AD3132734C809007EDA05 /* DetailLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLevel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				9A8AD2E62733E35D007EDA05 /* ObjectCaptureModelingApp.swift */,
 				9A8AD2E82733E35D007EDA05 /* ContentView.swift */,
+				9A8AD3132734C809007EDA05 /* DetailLevel.swift */,
 				9A8AD2EA2733E35E007EDA05 /* Assets.xcassets */,
 				9A8AD2EF2733E35E007EDA05 /* ObjectCaptureModeling.entitlements */,
 				9A8AD2EC2733E35E007EDA05 /* Preview Content */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */,
 				9A8AD2E92733E35D007EDA05 /* ContentView.swift in Sources */,
 				9A8AD2E72733E35D007EDA05 /* ObjectCaptureModelingApp.swift in Sources */,
 			);
