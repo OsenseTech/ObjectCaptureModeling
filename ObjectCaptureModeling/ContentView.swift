@@ -17,7 +17,8 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             HStack {
                 Text("資料夾名稱")
-                TextField("資料夾名稱", text: $folderName, prompt: Text("folderName"))
+                    .font(.headline)
+                TextField("資料夾名稱", text: $folderName, prompt: Text(""))
                     .frame(width: 200)
                 Button("選擇資料夾") {
                     let panel = NSOpenPanel()
