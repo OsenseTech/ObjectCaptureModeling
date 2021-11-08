@@ -44,6 +44,20 @@ class Photogrammetry: ObservableObject {
     
     @Published var fractionComplete: Double = 0.0
     
+    var message: String {
+        set {
+            DispatchQueue.main.async {
+                self._message = newValue
+            }
+        }
+        
+        get {
+            self._message
+        }
+    }
+    
+    @Published var _message: String = ""
+    
     private var session: PhotogrammetrySession!
         
     func run() {
@@ -56,12 +70,13 @@ class Photogrammetry: ObservableObject {
             maybeSession = try PhotogrammetrySession(input: inputFolderUrl,
                                                      configuration: configuration)
             logger.log("Successfully created session.")
+            message = "Successfully created session."
         } catch {
             logger.error("Error creating session: \(String(describing: error))")
-            Foundation.exit(1)
+            message = "Error creating session: \(String(describing: error))"
         }
         guard let session = maybeSession else {
-            Foundation.exit(1)
+            return
         }
         
         self.session = session
@@ -72,30 +87,36 @@ class Photogrammetry: ObservableObject {
                     switch output {
                         case .processingComplete:
                             logger.log("Processing is complete!")
-                            Foundation.exit(0)
+                            message = "Processing is complete!"
                         case .requestError(let request, let error):
                             logger.error("Request \(String(describing: request)) had an error: \(String(describing: error))")
+                            message = "Request \(String(describing: request)) had an error: \(String(describing: error))"
                         case .requestComplete(let request, let result):
                             self.handleRequestComplete(request: request, result: result)
                         case .requestProgress(let request, let fractionComplete):
                             self.handleRequestProgress(request: request, fractionComplete: fractionComplete)
                         case .inputComplete:  // data ingestion only!
                             logger.log("Data ingestion is complete.  Beginning processing...")
+                            message = "Data ingestion is complete.  Beginning processing..."
                         case .invalidSample(let id, let reason):
                             logger.warning("Invalid Sample! id=\(id)  reason=\"\(reason)\"")
+                            message = "Invalid Sample! id=\(id)  reason=\"\(reason)\""
                         case .skippedSample(let id):
                             logger.warning("Sample id=\(id) was skipped by processing.")
+                            message = "Sample id=\(id) was skipped by processing."
                         case .automaticDownsampling:
                             logger.warning("Automatic downsampling was applied!")
                         case .processingCancelled:
                             logger.warning("Processing was cancelled.")
+                            message = "Processing was cancelled."
                         @unknown default:
                             logger.error("Output: unhandled message: \(output.localizedDescription)")
+                            message = "Output: unhandled message: \(output.localizedDescription)"
                     }
                 }
             } catch {
                 logger.error("Output: ERROR = \(String(describing: error))")
-                Foundation.exit(0)
+                message = "Output: ERROR = \(String(describing: error))"
             }
         }
         
@@ -113,7 +134,7 @@ class Photogrammetry: ObservableObject {
                 RunLoop.main.run()
             } catch {
                 logger.critical("Process got error: \(String(describing: error))")
-                Foundation.exit(1)
+                message = "Process got error: \(String(describing: error))"
             }
         }
     }

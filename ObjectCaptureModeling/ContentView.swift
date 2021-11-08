@@ -63,6 +63,7 @@ struct ContentView: View {
             }
             
             Text("完成比例：\(model.fractionComplete * 100) %")
+            Text(model.message)
         }
         .padding()
     }
