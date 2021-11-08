@@ -10,13 +10,13 @@ import SwiftUI
 struct ContentView: View {
     
     @State var folderName = ""
-    @State var detailLevel: DetailLevel = .preview
-    @State var featureSensitivity: FeatureSensitivity = .normal
-    @State var sampleOrding: SampleOrdering = .sequential
+    @State var detailLevelIndex: Int = 0
+    @State var featureSensitivityIndex: Int = 0
+    @State var sampleOrdingIndex: Int = 0
     @StateObject var model = Photogrammetry()
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 20) {
             HStack {
                 Text("資料夾名稱")
                     .font(.headline)
@@ -32,62 +32,31 @@ struct ContentView: View {
                     }
                 }
             }
-            HStack {
-                Picker(selection: $detailLevel, label: Text("精細程度").font(.headline)) {
-                    ForEach(DetailLevel.allCases, id: \.self) { detailLevel in
-                        Text(detailLevel.rawValue)
-                    }
-                }
-                .pickerStyle(.radioGroup)
-            }
+            OptionView(name: "精細程度", options: detailLevel, selectedIndex: $detailLevelIndex)
+            OptionView(name: "表面紋路", options: featureSensitivity, selectedIndex: $featureSensitivityIndex)
+            OptionView(name: "照片順序", options: sampleOrder, selectedIndex: $sampleOrdingIndex)
             
-            HStack {
-                Picker(selection: $featureSensitivity, label: Text("表面紋路").font(.headline)) {
-                    ForEach(FeatureSensitivity.allCases, id: \.self) { featureSensitivity in
-                        Text(featureSensitivity.rawValue)
-                    }
-                }
-                .pickerStyle(.radioGroup)
-            }
-            
-            HStack {
-                Picker(selection: $sampleOrding, label: Text("照片順序").font(.headline)) {
-                    ForEach(SampleOrdering.allCases, id: \.self) { ordering in
-                        Text(ordering.rawValue)
-                    }
-                }
-                .pickerStyle(.radioGroup)
-            }
-            
-            Text("完成比例：\(model.fractionComplete)")
             Button("開始建模") {
                 model.folder = folderName
-                switch detailLevel {
-                case .preview:
-                    model.detail = .preview
-                case .reduced:
-                    model.detail = .reduced
-                case .medium:
-                    model.detail = .medium
-                case .full:
-                    model.detail = .full
-                case .raw:
-                    model.detail = .raw
-                }
-                switch featureSensitivity {
-                case .normal:
+                model.detail = Photogrammetry.Request.Detail(rawValue: detailLevelIndex)!
+                if featureSensitivityIndex == 0 {
                     model.featureSensitivity = .normal
-                case .high:
+                } else {
                     model.featureSensitivity = .high
                 }
-                switch sampleOrding {
-                case .sequential:
+                
+                if sampleOrdingIndex == 0 {
                     model.sampleOrdering = .sequential
-                case .unordered:
+                } else {
                     model.sampleOrdering = .unordered
                 }
-                model.run()
+                
+                let queue = DispatchQueue(label: "come.osensetech.modeling")
+                queue.async {
+                    model.run()
+                }
             }
+            Text("完成比例：\(model.fractionComplete * 100) %")
         }
         .padding()
     }

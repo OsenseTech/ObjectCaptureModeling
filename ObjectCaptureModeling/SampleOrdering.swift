@@ -7,7 +7,10 @@
 
 import Foundation
 
-enum SampleOrdering: String, CaseIterable {
-    case sequential
-    case unordered
+struct SampleOrder: Option {
+    let name: String
+    let description: String
 }
+
+let sampleOrder = [SampleOrder(name: "sequential", description: "Setting to sequential may speed up computation if images are captured in a spatially sequential pattern."),
+                   SampleOrder(name: "unordered", description: "無")]

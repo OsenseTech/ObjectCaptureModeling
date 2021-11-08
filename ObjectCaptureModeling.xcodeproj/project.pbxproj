@@ -18,6 +18,7 @@
 		9A8AD3032733E35E007EDA05 /* ObjectCaptureModelingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3022733E35E007EDA05 /* ObjectCaptureModelingUITests.swift */; };
 		9A8AD3052733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */; };
 		9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3132734C809007EDA05 /* DetailLevel.swift */; };
+		9AE9D3392738CE8300D21C22 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9D3382738CE8300D21C22 /* OptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		9A8AD3022733E35E007EDA05 /* ObjectCaptureModelingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITests.swift; sourceTree = "<group>"; };
 		9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9A8AD3132734C809007EDA05 /* DetailLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLevel.swift; sourceTree = "<group>"; };
+		9AE9D3382738CE8300D21C22 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				9A8AD2E62733E35D007EDA05 /* ObjectCaptureModelingApp.swift */,
 				9A8AD2E82733E35D007EDA05 /* ContentView.swift */,
+				9AE9D3382738CE8300D21C22 /* OptionView.swift */,
 				9A8AD3132734C809007EDA05 /* DetailLevel.swift */,
 				9A491ACA2738C38B006CD83A /* FeatureSensitivity.swift */,
 				9A491ACC2738C49C006CD83A /* SampleOrdering.swift */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AE9D3392738CE8300D21C22 /* OptionView.swift in Sources */,
 				9A491ACB2738C38B006CD83A /* FeatureSensitivity.swift in Sources */,
 				9A491ACD2738C49C006CD83A /* SampleOrdering.swift in Sources */,
 				9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */,
