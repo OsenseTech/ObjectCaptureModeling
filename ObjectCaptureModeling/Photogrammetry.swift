@@ -142,8 +142,7 @@ class Photogrammetry: ObservableObject {
     }
     
     /// Called when the sessions sends a progress update message.
-    private func handleRequestProgress(request: PhotogrammetrySession.Request,
-                                              fractionComplete: Double) {
+    private func handleRequestProgress(request: PhotogrammetrySession.Request, fractionComplete: Double) {
         DispatchQueue.main.async {
             self.fractionComplete = fractionComplete
         }
