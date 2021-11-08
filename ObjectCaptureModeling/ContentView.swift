@@ -20,9 +20,9 @@ struct ContentView: View {
             HStack {
                 Text("資料夾名稱")
                     .font(.headline)
-                TextField("資料夾名稱", text: $folderName, prompt: Text(""))
+                TextField("資料夾名稱", text: $folderName)
                     .frame(width: 200)
-                Button("選擇資料夾") {
+                Button("選擇") {
                     let panel = NSOpenPanel()
                     panel.allowsMultipleSelection = false
                     panel.canChooseDirectories = true
@@ -62,7 +62,7 @@ struct ContentView: View {
                 }
             }
             
-            Text("完成比例：\(model.fractionComplete * 100) %")
+            Text("處理進度：\(model.fractionComplete * 100) %")
             Text(model.message)
         }
         .padding()
