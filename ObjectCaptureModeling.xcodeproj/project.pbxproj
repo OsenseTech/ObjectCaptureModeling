@@ -105,13 +105,8 @@
 		9A8AD2E52733E35D007EDA05 /* ObjectCaptureModeling */ = {
 			isa = PBXGroup;
 			children = (
-				9A8AD2E62733E35D007EDA05 /* ObjectCaptureModelingApp.swift */,
-				9A8AD2E82733E35D007EDA05 /* ContentView.swift */,
-				9AE9D3382738CE8300D21C22 /* OptionView.swift */,
-				9A8AD3132734C809007EDA05 /* DetailLevel.swift */,
-				9A491ACA2738C38B006CD83A /* FeatureSensitivity.swift */,
-				9A491ACC2738C49C006CD83A /* SampleOrdering.swift */,
-				9A491AC827353BA9006CD83A /* Photogrammetry.swift */,
+				9AE9D33A2739119100D21C22 /* UI */,
+				9AE9D33B273911A900D21C22 /* Model */,
 				9A8AD2EA2733E35E007EDA05 /* Assets.xcassets */,
 				9A8AD2EF2733E35E007EDA05 /* ObjectCaptureModeling.entitlements */,
 				9A8AD2EC2733E35E007EDA05 /* Preview Content */,
@@ -142,6 +137,27 @@
 				9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */,
 			);
 			path = ObjectCaptureModelingUITests;
+			sourceTree = "<group>";
+		};
+		9AE9D33A2739119100D21C22 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9A8AD2E62733E35D007EDA05 /* ObjectCaptureModelingApp.swift */,
+				9A8AD2E82733E35D007EDA05 /* ContentView.swift */,
+				9AE9D3382738CE8300D21C22 /* OptionView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9AE9D33B273911A900D21C22 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A8AD3132734C809007EDA05 /* DetailLevel.swift */,
+				9A491ACA2738C38B006CD83A /* FeatureSensitivity.swift */,
+				9A491ACC2738C49C006CD83A /* SampleOrdering.swift */,
+				9A491AC827353BA9006CD83A /* Photogrammetry.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
