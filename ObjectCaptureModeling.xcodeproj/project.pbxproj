@@ -19,6 +19,7 @@
 		9A8AD3052733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */; };
 		9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3132734C809007EDA05 /* DetailLevel.swift */; };
 		9AE9D3392738CE8300D21C22 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9D3382738CE8300D21C22 /* OptionView.swift */; };
+		9AE9D33D2739121200D21C22 /* ProcessExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9D33C2739121200D21C22 /* ProcessExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9A8AD3132734C809007EDA05 /* DetailLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLevel.swift; sourceTree = "<group>"; };
 		9AE9D3382738CE8300D21C22 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		9AE9D33C2739121200D21C22 /* ProcessExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				9AE9D33A2739119100D21C22 /* UI */,
 				9AE9D33B273911A900D21C22 /* Model */,
+				9AE9D33E273938A000D21C22 /* Extension */,
 				9A8AD2EA2733E35E007EDA05 /* Assets.xcassets */,
 				9A8AD2EF2733E35E007EDA05 /* ObjectCaptureModeling.entitlements */,
 				9A8AD2EC2733E35E007EDA05 /* Preview Content */,
@@ -158,6 +161,14 @@
 				9A491AC827353BA9006CD83A /* Photogrammetry.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9AE9D33E273938A000D21C22 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9AE9D33C2739121200D21C22 /* ProcessExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +306,7 @@
 				9A491ACD2738C49C006CD83A /* SampleOrdering.swift in Sources */,
 				9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */,
 				9A491AC927353BA9006CD83A /* Photogrammetry.swift in Sources */,
+				9AE9D33D2739121200D21C22 /* ProcessExtension.swift in Sources */,
 				9A8AD2E92733E35D007EDA05 /* ContentView.swift in Sources */,
 				9A8AD2E72733E35D007EDA05 /* ObjectCaptureModelingApp.swift in Sources */,
 			);

@@ -61,12 +61,26 @@ struct ContentView: View {
                     model.cancel()
                 }
             }
-            
+            Button("轉檔") {
+                convert2glb(folderName: folderName)
+            }
             Text("處理進度：\(model.fractionComplete * 100) %")
             Text(model.message)
         }
         .padding()
     }
+    
+    func convert2glb(folderName: String) {
+        let path = "/Users/macmini/Pictures/ObjectCapture/\(folderName)"
+        let arguments = ["/opt/homebrew/bin/obj2gltf", "-i", "\(path)/baked_mesh.obj", "-o", "\(path)/baked_mesh.glb"]
+        
+        do {
+            try Process.execute("/opt/homebrew/bin/node", arguments: arguments)
+        } catch {
+            
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
