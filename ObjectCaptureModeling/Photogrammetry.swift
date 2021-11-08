@@ -8,48 +8,42 @@
 import Foundation
 import RealityKit
 import os
+import SwiftUI
 
 private let logger = Logger(subsystem: "com.apple.sample.photogrammetry",
                             category: "Photogrammetry")
 
-struct Photogrammetry {
+class Photogrammetry: ObservableObject {
     
     typealias Configuration = PhotogrammetrySession.Configuration
     typealias Request = PhotogrammetrySession.Request
     
-    private let inputFolder: String
+    private var inputFolder: String = "/Users/macmini/Pictures/ObjectCapture"
     
-    private let outputFilename: String
-    
-    private let detail: Request.Detail
-    
-    private let sampleOrdering: Configuration.SampleOrdering
-    
-    private let featureSensitivity: Configuration.FeatureSensitivity
-    
-    init(folder: String,
-         detail: DetailLevel,
-         photoOrdering: Configuration.SampleOrdering = .sequential,
-         featureSensitivity: Configuration.FeatureSensitivity = .high) {
+    private var outputFilename: String = "/Users/macmini/Pictures/ObjectCapture"
         
-        self.inputFolder = "/Users/macmini/Pictures/ObjectCapture/\(folder)"
-        self.outputFilename = "/Users/macmini/Pictures/ObjectCapture/\(folder)"
-        switch detail {
-        case .preview:
-            self.detail = .preview
-        case .reduced:
-            self.detail = .reduced
-        case .medium:
-            self.detail = .medium
-        case .full:
-            self.detail = .full
-        case .raw:
-            self.detail = .raw
+    var folder: String {
+        set {
+            self.inputFolder = "/Users/macmini/Pictures/ObjectCapture/\(newValue)"
+            self.outputFilename = "/Users/macmini/Pictures/ObjectCapture/\(newValue)"
+            _folder = newValue
         }
-        self.sampleOrdering = photoOrdering
-        self.featureSensitivity = featureSensitivity
+        
+        get {
+            _folder
+        }
     }
     
+    private var _folder: String = ""
+    
+    var detail: Request.Detail = .preview
+    
+    var sampleOrdering: Configuration.SampleOrdering = .sequential
+    
+    var featureSensitivity: Configuration.FeatureSensitivity = .normal
+    
+    @Published var fractionComplete: Double = 0.0
+        
     func run() {
         let inputFolderUrl = URL(fileURLWithPath: inputFolder, isDirectory: true)
         let configuration = makeConfigurationFromArguments()
@@ -150,6 +144,10 @@ struct Photogrammetry {
     /// Called when the sessions sends a progress update message.
     private func handleRequestProgress(request: PhotogrammetrySession.Request,
                                               fractionComplete: Double) {
+        DispatchQueue.main.async {
+            self.fractionComplete = fractionComplete
+        }
+
         logger.log("Progress(request = \(String(describing: request))) = \(fractionComplete)")
     }
     

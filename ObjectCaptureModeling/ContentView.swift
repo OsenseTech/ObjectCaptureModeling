@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State var detailLevel: DetailLevel = .preview
     @State var folderName = ""
+    @StateObject var model = Photogrammetry()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -36,8 +37,10 @@ struct ContentView: View {
                 }
                 .pickerStyle(.radioGroup)
             }
+            Text("\(model.fractionComplete)")
             Button("開始建模") {
-                Photogrammetry(folder: folderName, detail: detailLevel).run()
+                model.folder = folderName
+                model.run()
             }
         }
         .padding()

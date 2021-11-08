@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A491AC927353BA9006CD83A /* Photogrammetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A491AC827353BA9006CD83A /* Photogrammetry.swift */; };
 		9A8AD2E72733E35D007EDA05 /* ObjectCaptureModelingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD2E62733E35D007EDA05 /* ObjectCaptureModelingApp.swift */; };
 		9A8AD2E92733E35D007EDA05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD2E82733E35D007EDA05 /* ContentView.swift */; };
 		9A8AD2EB2733E35E007EDA05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A8AD2EA2733E35E007EDA05 /* Assets.xcassets */; };
@@ -15,7 +16,6 @@
 		9A8AD3032733E35E007EDA05 /* ObjectCaptureModelingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3022733E35E007EDA05 /* ObjectCaptureModelingUITests.swift */; };
 		9A8AD3052733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */; };
 		9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3132734C809007EDA05 /* DetailLevel.swift */; };
-		9AEDAFFF2735211E00429EDC /* Photogrammetry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDAFFE2735211D00429EDC /* Photogrammetry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A491AC827353BA9006CD83A /* Photogrammetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photogrammetry.swift; sourceTree = "<group>"; };
 		9A8AD2E32733E35D007EDA05 /* ObjectCaptureModeling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjectCaptureModeling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8AD2E62733E35D007EDA05 /* ObjectCaptureModelingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingApp.swift; sourceTree = "<group>"; };
 		9A8AD2E82733E35D007EDA05 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		9A8AD3022733E35E007EDA05 /* ObjectCaptureModelingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITests.swift; sourceTree = "<group>"; };
 		9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9A8AD3132734C809007EDA05 /* DetailLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLevel.swift; sourceTree = "<group>"; };
-		9AEDAFFE2735211D00429EDC /* Photogrammetry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photogrammetry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 				9A8AD2E62733E35D007EDA05 /* ObjectCaptureModelingApp.swift */,
 				9A8AD2E82733E35D007EDA05 /* ContentView.swift */,
 				9A8AD3132734C809007EDA05 /* DetailLevel.swift */,
-				9AEDAFFE2735211D00429EDC /* Photogrammetry.swift */,
+				9A491AC827353BA9006CD83A /* Photogrammetry.swift */,
 				9A8AD2EA2733E35E007EDA05 /* Assets.xcassets */,
 				9A8AD2EF2733E35E007EDA05 /* ObjectCaptureModeling.entitlements */,
 				9A8AD2EC2733E35E007EDA05 /* Preview Content */,
@@ -266,7 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */,
-				9AEDAFFF2735211E00429EDC /* Photogrammetry.swift in Sources */,
+				9A491AC927353BA9006CD83A /* Photogrammetry.swift in Sources */,
 				9A8AD2E92733E35D007EDA05 /* ContentView.swift in Sources */,
 				9A8AD2E72733E35D007EDA05 /* ObjectCaptureModelingApp.swift in Sources */,
 			);
