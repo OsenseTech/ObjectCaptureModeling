@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var detailLevel: DetailLevel = .preview
     @State var folderName = ""
+    @State var detailLevel: DetailLevel = .preview
+    @State var featureSensitivity: FeatureSensitivity = .normal
+    @State var sampleOrding: SampleOrdering = .sequential
     @StateObject var model = Photogrammetry()
     
     var body: some View {
@@ -38,9 +40,52 @@ struct ContentView: View {
                 }
                 .pickerStyle(.radioGroup)
             }
-            Text("\(model.fractionComplete)")
+            
+            HStack {
+                Picker(selection: $featureSensitivity, label: Text("表面紋路").font(.headline)) {
+                    ForEach(FeatureSensitivity.allCases, id: \.self) { featureSensitivity in
+                        Text(featureSensitivity.rawValue)
+                    }
+                }
+                .pickerStyle(.radioGroup)
+            }
+            
+            HStack {
+                Picker(selection: $sampleOrding, label: Text("照片順序").font(.headline)) {
+                    ForEach(SampleOrdering.allCases, id: \.self) { ordering in
+                        Text(ordering.rawValue)
+                    }
+                }
+                .pickerStyle(.radioGroup)
+            }
+            
+            Text("完成比例：\(model.fractionComplete)")
             Button("開始建模") {
                 model.folder = folderName
+                switch detailLevel {
+                case .preview:
+                    model.detail = .preview
+                case .reduced:
+                    model.detail = .reduced
+                case .medium:
+                    model.detail = .medium
+                case .full:
+                    model.detail = .full
+                case .raw:
+                    model.detail = .raw
+                }
+                switch featureSensitivity {
+                case .normal:
+                    model.featureSensitivity = .normal
+                case .high:
+                    model.featureSensitivity = .high
+                }
+                switch sampleOrding {
+                case .sequential:
+                    model.sampleOrdering = .sequential
+                case .unordered:
+                    model.sampleOrdering = .unordered
+                }
                 model.run()
             }
         }

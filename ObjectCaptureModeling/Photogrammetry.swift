@@ -38,9 +38,9 @@ class Photogrammetry: ObservableObject {
     
     var detail: Request.Detail = .preview
     
-    var sampleOrdering: Configuration.SampleOrdering = .sequential
-    
     var featureSensitivity: Configuration.FeatureSensitivity = .normal
+    
+    var sampleOrdering: Configuration.SampleOrdering = .sequential
     
     @Published var fractionComplete: Double = 0.0
         
