@@ -36,26 +36,32 @@ struct ContentView: View {
             OptionView(name: "表面紋路", options: featureSensitivity, selectedIndex: $featureSensitivityIndex)
             OptionView(name: "照片順序", options: sampleOrder, selectedIndex: $sampleOrdingIndex)
             
-            Button("開始建模") {
-                model.folder = folderName
-                model.detail = Photogrammetry.Request.Detail(rawValue: detailLevelIndex)!
-                if featureSensitivityIndex == 0 {
-                    model.featureSensitivity = .normal
-                } else {
-                    model.featureSensitivity = .high
+            HStack {
+                Button("開始建模") {
+                    model.folder = folderName
+                    model.detail = Photogrammetry.Request.Detail(rawValue: detailLevelIndex)!
+                    if featureSensitivityIndex == 0 {
+                        model.featureSensitivity = .normal
+                    } else {
+                        model.featureSensitivity = .high
+                    }
+                    
+                    if sampleOrdingIndex == 0 {
+                        model.sampleOrdering = .sequential
+                    } else {
+                        model.sampleOrdering = .unordered
+                    }
+                    
+                    let queue = DispatchQueue(label: "come.osensetech.modeling")
+                    queue.async {
+                        model.run()
+                    }
                 }
-                
-                if sampleOrdingIndex == 0 {
-                    model.sampleOrdering = .sequential
-                } else {
-                    model.sampleOrdering = .unordered
-                }
-                
-                let queue = DispatchQueue(label: "come.osensetech.modeling")
-                queue.async {
-                    model.run()
+                Button("停止") {
+                    model.cancel()
                 }
             }
+            
             Text("完成比例：\(model.fractionComplete * 100) %")
         }
         .padding()

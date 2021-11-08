@@ -43,6 +43,8 @@ class Photogrammetry: ObservableObject {
     var sampleOrdering: Configuration.SampleOrdering = .sequential
     
     @Published var fractionComplete: Double = 0.0
+    
+    private var session: PhotogrammetrySession!
         
     func run() {
         let inputFolderUrl = URL(fileURLWithPath: inputFolder, isDirectory: true)
@@ -61,6 +63,8 @@ class Photogrammetry: ObservableObject {
         guard let session = maybeSession else {
             Foundation.exit(1)
         }
+        
+        self.session = session
         
         let waiter = Task {
             do {
@@ -112,6 +116,10 @@ class Photogrammetry: ObservableObject {
                 Foundation.exit(1)
             }
         }
+    }
+    
+    func cancel() {
+        session.cancel()
     }
     
     /// Creates the session configuration by overriding any defaults with arguments specified.
