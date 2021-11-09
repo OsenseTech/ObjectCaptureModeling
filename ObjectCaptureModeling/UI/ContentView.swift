@@ -73,7 +73,7 @@ struct ContentView: View {
         do {
             try Process.execute("/opt/homebrew/bin/node", arguments: arguments)
         } catch {
-            
+            print("發生錯誤：\(error.localizedDescription)")
         }
     }
     
@@ -98,5 +98,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewLayout(.sizeThatFits)
     }
 }
