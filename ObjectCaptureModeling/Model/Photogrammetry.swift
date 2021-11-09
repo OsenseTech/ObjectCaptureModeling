@@ -60,9 +60,13 @@ class Photogrammetry: ObservableObject {
     
     @Published var _message: String = ""
     
-    private var session: PhotogrammetrySession!
+    private var session: PhotogrammetrySession?
         
     func run() {
+        guard self.session?.isProcessing != true else {
+            message = "已經在生成另一個模型了"
+            return
+        }
         let inputFolderUrl = URL(fileURLWithPath: inputFolder, isDirectory: true)
         let configuration = makeConfigurationFromArguments()
         logger.log("Using configuration: \(String(describing: configuration))")
@@ -148,7 +152,7 @@ class Photogrammetry: ObservableObject {
     }
     
     func cancel() {
-        session.cancel()
+        session?.cancel()
     }
     
     /// Creates the session configuration by overriding any defaults with arguments specified.
