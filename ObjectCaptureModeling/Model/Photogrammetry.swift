@@ -44,6 +44,8 @@ class Photogrammetry: ObservableObject {
     
     @Published var fractionComplete: Double = 0.0
     
+    @Published var isCompleted: Bool = false
+    
     var message: String {
         set {
             DispatchQueue.main.async {
@@ -88,6 +90,9 @@ class Photogrammetry: ObservableObject {
                         case .processingComplete:
                             logger.log("Processing is complete!")
                             message = "Processing is complete!"
+                            DispatchQueue.main.async {
+                                self.isCompleted = true
+                            }
                         case .requestError(let request, let error):
                             logger.error("Request \(String(describing: request)) had an error: \(String(describing: error))")
                             message = "Request \(String(describing: request)) had an error: \(String(describing: error))"
@@ -129,6 +134,9 @@ class Photogrammetry: ObservableObject {
                 let request = makeRequestFromArguments()
                 logger.log("Using request: \(String(describing: request))")
                 try session.process(requests: [ request ])
+                DispatchQueue.main.async {
+                    self.isCompleted = false
+                }
                 // Enter the infinite loop dispatcher used to process asynchronous
                 // blocks on the main queue. You explicitly exit above to stop the loop.
                 RunLoop.main.run()

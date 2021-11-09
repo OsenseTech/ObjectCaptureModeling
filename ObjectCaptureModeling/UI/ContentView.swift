@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var detailLevelIndex: Int = 0
     @State var featureSensitivityIndex: Int = 0
     @State var sampleOrdingIndex: Int = 0
+    @State var isAutoConvertEnabled: Bool = false
     @StateObject var model = Photogrammetry()
     private let queue = DispatchQueue(label: "come.osensetech.modeling")
     
@@ -44,6 +45,8 @@ struct ContentView: View {
                         model.run()
                     }
                 }
+                Toggle("生成模型完接著轉檔", isOn: $isAutoConvertEnabled)
+                Spacer()
                 Button("停止") {
                     model.cancel()
                 }
@@ -51,10 +54,16 @@ struct ContentView: View {
             Button("轉檔") {
                 convert2glb(folderName: folderName)
             }
+            Divider()
             Text("處理進度：\(model.fractionComplete * 100) %")
             Text(model.message)
         }
         .padding()
+        .onReceive(model.$isCompleted) { _ in
+            if isAutoConvertEnabled && model.isCompleted {
+                convert2glb(folderName: folderName)
+            }
+        }
     }
     
     func convert2glb(folderName: String) {
