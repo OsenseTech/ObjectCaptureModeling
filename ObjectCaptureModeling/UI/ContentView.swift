@@ -14,6 +14,7 @@ struct ContentView: View {
     @State var featureSensitivityIndex: Int = 0
     @State var sampleOrdingIndex: Int = 0
     @StateObject var model = Photogrammetry()
+    private let queue = DispatchQueue(label: "come.osensetech.modeling")
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -51,8 +52,6 @@ struct ContentView: View {
                     } else {
                         model.sampleOrdering = .unordered
                     }
-                    
-                    let queue = DispatchQueue(label: "come.osensetech.modeling")
                     queue.async {
                         model.run()
                     }
