@@ -39,19 +39,7 @@ struct ContentView: View {
             
             HStack {
                 Button("開始建模") {
-                    model.folder = folderName
-                    model.detail = Photogrammetry.Request.Detail(rawValue: detailLevelIndex)!
-                    if featureSensitivityIndex == 0 {
-                        model.featureSensitivity = .normal
-                    } else {
-                        model.featureSensitivity = .high
-                    }
-                    
-                    if sampleOrdingIndex == 0 {
-                        model.sampleOrdering = .sequential
-                    } else {
-                        model.sampleOrdering = .unordered
-                    }
+                    configModel()
                     queue.async {
                         model.run()
                     }
@@ -77,6 +65,22 @@ struct ContentView: View {
             try Process.execute("/opt/homebrew/bin/node", arguments: arguments)
         } catch {
             
+        }
+    }
+    
+    func configModel() {
+        model.folder = folderName
+        model.detail = Photogrammetry.Request.Detail(rawValue: detailLevelIndex)!
+        if featureSensitivityIndex == 0 {
+            model.featureSensitivity = .normal
+        } else {
+            model.featureSensitivity = .high
+        }
+        
+        if sampleOrdingIndex == 0 {
+            model.sampleOrdering = .sequential
+        } else {
+            model.sampleOrdering = .unordered
         }
     }
     
