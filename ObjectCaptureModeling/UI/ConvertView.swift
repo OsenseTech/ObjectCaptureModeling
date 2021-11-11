@@ -10,21 +10,11 @@ import SwiftUI
 struct ConvertView: View {
     
     @Binding var folderName: String
-    @State var isConvertGLBEnabled = true
-    @State var isConvertUSDZEnabled = true
     
     var body: some View {
         VStack(alignment: .leading) {
-            Toggle(".glb", isOn: $isConvertGLBEnabled)
-            Toggle(".usdz", isOn: $isConvertUSDZEnabled)
             Button("轉檔") {
-                if isConvertGLBEnabled {
-                    convert2glb(folderName: folderName)
-                }
-                
-                if isConvertUSDZEnabled {
-                    convert2usdz(folderName: folderName)
-                }
+                convert2glb(folderName: folderName)
             }
         }
     }
@@ -40,10 +30,6 @@ func convert2glb(folderName: String) {
     } catch {
         print("發生錯誤：\(error.localizedDescription)")
     }
-}
-
-func convert2usdz(folderName: String) {
-    
 }
 
 struct ConvertView_Previews: PreviewProvider {
