@@ -36,11 +36,11 @@ struct ModelingView: View {
             Text("處理進度：\(model.fractionComplete * 100) %")
             Text(model.message)
         }
-        .onReceive(model.$isCompleted) { _ in
-            if isAutoConvertEnabled && model.isCompleted {
+        .onChange(of: model.isCompleted, perform: { isCompleted in
+            if isAutoConvertEnabled && isCompleted == true {
                 convert2glb(folderPath: folderPath)
             }
-        }
+        })
     }
     
     func configModel() {
