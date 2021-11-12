@@ -9,21 +9,20 @@ import SwiftUI
 
 struct ConvertView: View {
     
-    @Binding var folderName: String
+    @Binding var folderPath: String
     
     var body: some View {
         VStack(alignment: .leading) {
             Button("轉檔") {
-                convert2glb(folderName: folderName)
+                convert2glb(folderPath: folderPath)
             }
         }
     }
     
 }
 
-func convert2glb(folderName: String) {
-    let path = "/Users/macmini/Pictures/ObjectCapture/\(folderName)"
-    let arguments = ["/opt/homebrew/bin/obj2gltf", "-i", "\(path)/baked_mesh.obj", "-o", "\(path)/baked_mesh.glb"]
+func convert2glb(folderPath: String) {
+    let arguments = ["/opt/homebrew/bin/obj2gltf", "-i", "\(folderPath)/baked_mesh.obj", "-o", "\(folderPath)/baked_mesh.glb"]
     
     do {
         try Process.execute("/opt/homebrew/bin/node", arguments: arguments)
@@ -34,6 +33,6 @@ func convert2glb(folderName: String) {
 
 struct ConvertView_Previews: PreviewProvider {
     static var previews: some View {
-        ConvertView(folderName: .constant(""))
+        ConvertView(folderPath: .constant(""))
     }
 }

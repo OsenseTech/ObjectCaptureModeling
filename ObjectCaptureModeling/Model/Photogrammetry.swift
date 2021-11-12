@@ -18,24 +18,8 @@ class Photogrammetry: ObservableObject {
     typealias Configuration = PhotogrammetrySession.Configuration
     typealias Request = PhotogrammetrySession.Request
     
-    private var inputFolder: String = "/Users/macmini/Pictures/ObjectCapture"
-    
-    private var outputFilename: String = "/Users/macmini/Pictures/ObjectCapture"
+    var folderPath: String = ""
         
-    var folder: String {
-        set {
-            self.inputFolder = "/Users/macmini/Pictures/ObjectCapture/\(newValue)"
-            self.outputFilename = "/Users/macmini/Pictures/ObjectCapture/\(newValue)"
-            _folder = newValue
-        }
-        
-        get {
-            _folder
-        }
-    }
-    
-    private var _folder: String = ""
-    
     var detail: Request.Detail = .preview
     
     var featureSensitivity: Configuration.FeatureSensitivity = .normal
@@ -67,7 +51,7 @@ class Photogrammetry: ObservableObject {
             message = "已經在生成另一個模型了"
             return
         }
-        let inputFolderUrl = URL(fileURLWithPath: inputFolder, isDirectory: true)
+        let inputFolderUrl = URL(fileURLWithPath: folderPath, isDirectory: true)
         let configuration = makeConfigurationFromArguments()
         logger.log("Using configuration: \(String(describing: configuration))")
         
@@ -166,7 +150,7 @@ class Photogrammetry: ObservableObject {
     
     /// Creates a request to use based on the command-line arguments.
     private func makeRequestFromArguments() -> PhotogrammetrySession.Request {
-        let outputUrl = URL(fileURLWithPath: outputFilename)
+        let outputUrl = URL(fileURLWithPath: folderPath)
         return PhotogrammetrySession.Request.modelFile(url: outputUrl, detail: detail)
     }
     

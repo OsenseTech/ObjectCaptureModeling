@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ModelingView: View {
     
-    var folderName = ""
     var detailLevelIndex = 0
     var featureSensitivityIndex = 0
     var sampleOrdingIndex = 0
+    @Binding var folderPath: String
     @State var isAutoConvertEnabled: Bool = false
     @StateObject var model = Photogrammetry()
     
@@ -38,13 +38,13 @@ struct ModelingView: View {
         }
         .onReceive(model.$isCompleted) { _ in
             if isAutoConvertEnabled && model.isCompleted {
-                convert2glb(folderName: folderName)
+                convert2glb(folderPath: folderPath)
             }
         }
     }
     
     func configModel() {
-        model.folder = folderName
+        model.folderPath = folderPath
         model.detail = Photogrammetry.Request.Detail(rawValue: detailLevelIndex)!
         if featureSensitivityIndex == 0 {
             model.featureSensitivity = .normal
@@ -63,6 +63,6 @@ struct ModelingView: View {
 
 struct ModelingView_Previews: PreviewProvider {
     static var previews: some View {
-        ModelingView()
+        ModelingView(folderPath: .constant(""))
     }
 }

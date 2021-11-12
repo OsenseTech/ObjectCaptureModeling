@@ -18,6 +18,7 @@
 		9A8AD3032733E35E007EDA05 /* ObjectCaptureModelingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3022733E35E007EDA05 /* ObjectCaptureModelingUITests.swift */; };
 		9A8AD3052733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */; };
 		9A8AD3142734C809007EDA05 /* DetailLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD3132734C809007EDA05 /* DetailLevel.swift */; };
+		9A993B27273E6C9200470900 /* BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A993B26273E6C9200470900 /* BindingExtension.swift */; };
 		9AE9D3392738CE8300D21C22 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9D3382738CE8300D21C22 /* OptionView.swift */; };
 		9AE9D33D2739121200D21C22 /* ProcessExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9D33C2739121200D21C22 /* ProcessExtension.swift */; };
 		9AE9D340273A2DC500D21C22 /* ModelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE9D33F273A2DC500D21C22 /* ModelingView.swift */; };
@@ -58,6 +59,7 @@
 		9A8AD3022733E35E007EDA05 /* ObjectCaptureModelingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITests.swift; sourceTree = "<group>"; };
 		9A8AD3042733E35E007EDA05 /* ObjectCaptureModelingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectCaptureModelingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9A8AD3132734C809007EDA05 /* DetailLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLevel.swift; sourceTree = "<group>"; };
+		9A993B26273E6C9200470900 /* BindingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExtension.swift; sourceTree = "<group>"; };
 		9AE9D3382738CE8300D21C22 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		9AE9D33C2739121200D21C22 /* ProcessExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessExtension.swift; sourceTree = "<group>"; };
 		9AE9D33F273A2DC500D21C22 /* ModelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelingView.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				9AE9D33C2739121200D21C22 /* ProcessExtension.swift */,
+				9A993B26273E6C9200470900 /* BindingExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				9AE9D33D2739121200D21C22 /* ProcessExtension.swift in Sources */,
 				9AE9D342273A2FC300D21C22 /* ConvertView.swift in Sources */,
 				9A8AD2E92733E35D007EDA05 /* ContentView.swift in Sources */,
+				9A993B27273E6C9200470900 /* BindingExtension.swift in Sources */,
 				9A8AD2E72733E35D007EDA05 /* ObjectCaptureModelingApp.swift in Sources */,
 				9AE9D340273A2DC500D21C22 /* ModelingView.swift in Sources */,
 			);
