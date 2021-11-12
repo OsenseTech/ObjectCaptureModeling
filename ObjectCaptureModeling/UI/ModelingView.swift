@@ -27,7 +27,7 @@ struct ModelingView: View {
                         model.run()
                     }
                 }
-                Toggle("生成模型後接著轉檔", isOn: $isAutoConvertEnabled)
+                Toggle("生成模型後接著轉 .glb", isOn: $isAutoConvertEnabled)
                 Spacer()
                 Button("停止") {
                     model.cancel()
